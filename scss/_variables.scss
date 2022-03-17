@@ -1,0 +1,49 @@
+:root {
+  /* ---------- COLOR ---------- */
+
+  --c-white: white;
+
+  --c-grey-200: #f7f7f8;
+  --c-grey-300: #dcdce0;
+  --c-grey-400: #c9c9cf;
+  --c-grey-500: #a9a9b2;
+
+  --c-black: black;
+
+  --c-main-text: #312f2f;
+
+  --c-accent-000: #ebddfb;
+  --c-accent-100: #f5dcf1;
+  --c-accent-200: #c165dd;
+  --c-accent-300: #a856e6;
+  --c-accent-400: #8f46ee;
+  --c-accent-500: #7637f6;
+  --c-accent-600: #5c27fe;
+  --c-accent-900: #242038;
+
+  --c-accent-shadow: #251b5540;
+  --c-accent-shadow-l: #251b550d;
+
+  --gradient-main: linear-gradient(132deg, #c165dd 0%, #5c27fe 100%);
+
+  --c-blue: #c9ddff; // #a8e0ff #32cbff
+  --c-red: #ff715b; // #ed1c24 #cc2936
+  --c-yellow: #f5e960; // #ffd166 #fde74c
+  --c-green: #47e5bc; // #04e762 #61e294
+
+  /* ---------- FONT ---------- */
+
+  --ff-main: "Titillium Web", sans-serif;
+
+  /* ---------- SPACE ---------- */
+}
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --white: black;
+//     --black: white;
+
+//     --c-main-text: white;
+//     --c-main-light: black;
+//   }
+// }

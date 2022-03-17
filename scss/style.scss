@@ -1,0 +1,400 @@
+@import "_variables", "_reset", "_mixin";
+
+.colorpick-eyedropper-input-trigger {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background: var(--gradient-main);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 3rem;
+  width: 100%;
+  height: 100%;
+  background-color: var(--c-accent-shadow);
+
+  &.active {
+    display: block;
+    @include d-flex(row, nowrap, center, center);
+  }
+
+  &__container {
+    position: relative;
+    max-width: 800px;
+    @include d-flex(column, nowrap, center, center);
+    padding: 4rem 1.5rem 3.5rem;
+    background-color: var(--c-accent-000);
+    box-shadow: 0px 5px 20px var(--c-accent-shadow-l);
+    border-radius: 10px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    color: var(--c-accent-300);
+    opacity: 0.25;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+  }
+
+  &__close:hover {
+    opacity: 0.75;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__form {
+    width: 100%;
+    @include d-flex(row, wrap, flex-end, stretch);
+    gap: 0.5rem;
+  }
+
+  &__input {
+    flex-grow: 1;
+    padding: 0.5em 1em;
+    background-color: hsla(0, 0%, 100%, 0.75);
+    border-radius: 0.33em;
+    box-shadow: 0px 5px 10px var(--c-accent-shadow-l);
+  }
+
+  #chore {
+    width: 100%;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__svg {
+    @include d-flex(row, nowrap, center, center);
+    width: 2.5rem;
+    padding: 0 0.5rem;
+    height: 100%;
+    color: var(--c-grey-400);
+    background-color: hsla(0, 0%, 100%, 0.75);
+    border-radius: 0.35em;
+    box-shadow: 0px 5px 10px var(--c-accent-shadow-l);
+
+    transition: all 0.3s ease;
+  }
+
+  &__svg:hover {
+    color: var(--c-grey-500);
+  }
+
+  &__checkbox:checked + &__svg {
+    color: var(--c-red);
+  }
+
+  &__svg.colored {
+    background-color: var(--c-formtag);
+    color: white;
+  }
+
+  &__label {
+    cursor: pointer;
+  }
+
+  &__button {
+    padding: 0.65em 2em;
+    background-color: var(--c-accent-300);
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    box-shadow: 0px 5px 10px var(--c-accent-shadow-l);
+    cursor: pointer;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  &__button:hover {
+    opacity: 0.8;
+  }
+}
+
+.filter {
+  @include d-flex(row, wrap, flex-start, stretch);
+  gap: 0.51rem;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: hsla(0, 0%, 100%, 0.75);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+
+  &__p {
+    width: 100%;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  &__input {
+    padding: 0.5em 1em;
+    background-color: hsla(0, 0%, 100%, 0.75);
+    border-radius: 0.33em;
+    box-shadow: 0px 5px 10px var(--c-accent-shadow-l);
+    flex-grow: 1;
+  }
+
+  &__select {
+    padding: 0.5em 1em;
+    background-color: hsla(0, 0%, 100%, 0.75);
+    border-radius: 0.33em;
+    box-shadow: 0px 5px 10px var(--c-accent-shadow-l);
+  }
+}
+
+.table {
+  padding: 2rem;
+  margin: 2rem auto;
+  width: calc(100% - 4rem);
+  max-width: 1200px;
+  background-color: hsla(0, 0%, 100%, 0.25);
+  box-shadow: 0px 5px 20px var(--c-accent-shadow-l);
+  border-radius: 20px;
+
+  &__section {
+    @include d-flex(row, nowrap, space-between, stretch);
+    gap: 1rem;
+
+    @include media(t) {
+      flex-direction: column;
+    }
+  }
+
+  &__li {
+    flex-grow: 1;
+    width: 100%;
+    padding: 2rem 1.5rem 0.5rem;
+    background-color: hsla(0, 0%, 100%, 0.75);
+    border-radius: 10px;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__list {
+    position: relative;
+    @include d-flex(row, nowrap, flex-start, center);
+    padding: 1em 1em 1em 1em;
+    margin-bottom: 1rem;
+    background-color: white;
+    border-radius: 0.55em;
+    box-shadow: 0px 5px 10px var(--c-accent-shadow-l),
+      inset 7px 0px var(--c-tag, white), inset 0rem 0px var(--c-red);
+
+    transition: all 0.3s ease;
+  }
+
+  &__list.inactive{
+    display: none;
+  }
+
+  .importantChore {
+    box-shadow: 0px 5px 10px var(--c-accent-shadow-l),
+      inset 7px 0px var(--c-tag, white), inset -0.75rem 0px var(--c-red);
+  }
+
+  #add {
+    width: 50%;
+    margin: 1rem auto;
+    color: var(--c-accent-200);
+    padding: 0.5rem 0;
+    opacity: 0.6;
+    cursor: pointer;
+    transform: scaleY(1);
+    transition: all 0.3s ease;
+
+    svg {
+      width: 1.5rem;
+      margin: 0 auto;
+    }
+  }
+
+  &__list:first-child#add {
+    width: 100%;
+  }
+
+  #add:hover {
+    transform: scaleY(1.1);
+  }
+
+  &__chore {
+    @include d-flex(column, nowrap, flex-start, flex-start);
+
+    &-span {
+      @include d-flex(row, nowrap, flex-start, flex-start);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    &-user {
+      margin: 0.5em 0 0 0.2em;
+      font-size: 0.8em;
+    }
+
+    &-time {
+      font-size: 0.7em;
+      color: var(--c-accent-200);
+      font-weight: 400;
+      margin: 0.2em 0 0 0.1em;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    color: var(--c-grey-300);
+    transition: all 0.5s ease;
+  }
+
+  .complete {
+    // align-self: flex-start;
+    color: var(--c-accent-200);
+    width: 1.65rem;
+    background-color: white;
+    border-radius: 0.3em;
+    border: 2px solid currentColor;
+    // margin-top: .20rem;
+    margin-right: 0.75rem;
+  }
+
+  .remove {
+    color: var(--c-grey-300);
+    opacity: 0;
+    pointer-events: none;
+    width: 1.25rem;
+    margin: 0.07rem 0 0 auto;
+  }
+
+  .important {
+    width: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .options {
+    width: 1.2rem;
+    opacity: 0;
+    margin-left: 0.3em;
+  }
+
+  .importantChore .important {
+    color: var(--c-red);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .tags {
+    width: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    margin: 0.1rem 0 0 0.2rem;
+    align-self: flex-start;
+  }
+
+  &__list:hover &__button {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__button:hover {
+    color: var(--c-accent-200);
+  }
+
+  #completed .complete {
+    color: white;
+    pointer-events: auto;
+    opacity: 1;
+    background-color: var(--c-green);
+    border: 2px solid var(--c-green);
+  }
+}
+
+.color-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  @include d-flex(row, nowrap, center, center);
+  background-color: var(--c-accent-shadow);
+
+  &__container {
+    width: 90%;
+    max-width: 350px;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    background-color: white;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    box-shadow: 0px 5px 10px var(--c-accent-shadow);
+  }
+
+  &__label span {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.25 / 1;
+    background-color: var(--c-bkg);
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 0px 0px var(--c-accent-900);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  &__color:checked + span {
+    box-shadow: inset 0px 0px 0px 2px var(--c-accent-900);
+  }
+
+  &__color {
+    display: none;
+  }
+
+  &__button {
+    grid-column: span 3;
+    padding: 0.65em 2em;
+    background-color: var(--c-accent-300);
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-radius: 7px;
+    box-shadow: 0px 5px 10px var(--c-accent-shadow-l);
+    cursor: pointer;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  &__button:hover {
+    opacity: 0.8;
+  }
+}

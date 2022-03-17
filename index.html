@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List | Koalba</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script async defer src="js/app.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <main class="main" id="main">
+
+        <div class="table">
+            <div class="filter">
+                <p class="filter__p">Ogranizar por:</p>
+                <input id="chore-name" class="filter__input" type="text" placeholder="E.g. Hacer la compra">
+                <label for="filter-user">
+                    <select name="filter-user" id="filter-user" class="filter__select">
+                        <option value="" selected>All</option>
+                    </select>
+                </label>
+                <div class="modal__label">
+                    <button value="white" class="modal__svg" id="filter-tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z"/><path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z"/></svg></button>
+                </div>
+                <label for="filter-importance" class="modal__label">
+                    <input id="filter-importance" name="importance" type="checkbox" class="modal__checkbox importance">
+                    <span class="modal__svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="1 0 13 15"><path d="M7.005 3.1a1 1 0 1 1 1.99 0l-.388 6.35a.61.61 0 0 1-1.214 0L7.005 3.1ZM7 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"/></svg></span>
+                </label>
+            </div>
+            <ul class="table__section">
+                <li id="pending" class="table__li">
+                    <h2 class="table__title">Tareas Pendientes</h2>
+                    <ul class="table__column">
+                    </ul>
+                </li>
+                <li id="inprogress" class="table__li">
+                    <h2 class="table__title">Tareas En Proceso</h2>
+                    <ul class="table__column">
+                    </ul>
+                </li>
+                <li id="completed" class="table__li">
+                    <h2 class="table__title">Tareas Completadas</h2>
+                    <ul class="table__column">
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="modal" class="modal">
+            <div class="modal__container">
+                <button id="close" class="modal__close">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </button>
+                <h4 class="modal__title">Añadir nueva tarea</h4>
+                <div class="modal__form">
+                    <input id="chore" name="chore" type="text" class="modal__input" placeholder="E.g. Hacer la lista de la compra...">
+                    <input id="date" name="date" type="date" class="modal__input">
+                    <input id="name" name="name" type="text" class="modal__input" placeholder="E.g. Jane Doe">
+                    <div class="modal__label">
+                        <button value="white" class="modal__svg" id="form-tag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z"/><path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z"/></svg></button>
+                    </div>
+                    <label for="importance" class="modal__label">
+                        <input id="importance" name="importance" type="checkbox" class="modal__checkbox">
+                        <span class="modal__svg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="1 0 13 15"><path d="M7.005 3.1a1 1 0 1 1 1.99 0l-.388 6.35a.61.61 0 0 1-1.214 0L7.005 3.1ZM7 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"/></svg></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
